@@ -1,7 +1,3 @@
 # watanabe3tipapa/livemd
-> このリポジトリは *.livemd の一時保存に用います。
+> このリポジトリは *.livemd の一時保存のために用います。
 ---
-
-
-
-
