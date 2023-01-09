@@ -1,0 +1,63 @@
+# Map
+
+```elixir
+Mix.install([
+  {:kino_maplibre, "~> 0.1.7"}
+])
+```
+
+## ＜Map＞ street
+
+<!-- livebook:{"attrs":{"center":"142.1,43","layers":[{"cluster_colors":["#51bbd6","#f1f075","#f28cb1"],"cluster_max":750,"cluster_min":100,"coordinates_format":"lng_lat","layer_color":"#00fcff","layer_opacity":1,"layer_radius":5,"layer_source":"🌎 Geocoding","layer_source_query":"otaru","layer_source_query_strict":"city","layer_type":"line","source_coordinates":null,"source_latitude":null,"source_longitude":null,"source_type":"query"}],"ml_alias":"Elixir.MapLibre","style":"street (non-commercial)","zoom":7},"chunks":null,"kind":"Elixir.KinoMapLibre.MapCell","livebook_object":"smart_cell"} -->
+
+```elixir
+MapLibre.new(style: :street, center: {142.1, 43.0}, zoom: 7)
+|> MapLibre.add_geocode_source("otaru_city", "otaru", :city)
+|> MapLibre.add_layer(
+  id: "otaru_city_line_1",
+  source: "otaru_city",
+  type: :line,
+  paint: [line_color: "#00fcff", line_opacity: 1]
+)
+```
+
+## ＜Map＞ terrain
+
+<!-- livebook:{"attrs":{"center":"142.1,43","layers":[{"cluster_colors":["#51bbd6","#f1f075","#f28cb1"],"cluster_max":750,"cluster_min":100,"coordinates_format":"lng_lat","layer_color":"#00fcff","layer_opacity":1,"layer_radius":5,"layer_source":"🌎 Geocoding","layer_source_query":"otaru","layer_source_query_strict":"city","layer_type":"line","source_coordinates":null,"source_latitude":null,"source_longitude":null,"source_type":"query"}],"ml_alias":"Elixir.MapLibre","style":"terrain (non-commercial)","zoom":7},"chunks":null,"kind":"Elixir.KinoMapLibre.MapCell","livebook_object":"smart_cell"} -->
+
+```elixir
+MapLibre.new(style: :terrain, center: {142.1, 43.0}, zoom: 7)
+|> MapLibre.add_geocode_source("otaru_city", "otaru", :city)
+|> MapLibre.add_layer(
+  id: "otaru_city_line_1",
+  source: "otaru_city",
+  type: :line,
+  paint: [line_color: "#00fcff", line_opacity: 1]
+)
+```
+
+<!-- livebook:{"attrs":{"center":"135,42","layers":[{"cluster_colors":["#51bbd6","#f1f075","#f28cb1"],"cluster_max":750,"cluster_min":100,"coordinates_format":"lng_lat","layer_color":"#ff2600","layer_opacity":0.4,"layer_radius":5,"layer_source":"🌎 Geocoding","layer_source_query":"Japan","layer_source_query_strict":"country","layer_type":"line","source_coordinates":null,"source_latitude":null,"source_longitude":null,"source_type":"query"}],"ml_alias":"Elixir.MapLibre","style":"default","zoom":3},"chunks":null,"kind":"Elixir.KinoMapLibre.MapCell","livebook_object":"smart_cell"} -->
+
+```elixir
+MapLibre.new(center: {135.0, 42.0}, zoom: 3)
+|> MapLibre.add_geocode_source("japan_country", "Japan", :country)
+|> MapLibre.add_layer(
+  id: "japan_country_line_1",
+  source: "japan_country",
+  type: :line,
+  paint: [line_color: "#ff2600", line_opacity: 0.4]
+)
+```
+
+<!-- livebook:{"attrs":{"center":"135,42","layers":[{"cluster_colors":["#51bbd6","#f1f075","#f28cb1"],"cluster_max":750,"cluster_min":100,"coordinates_format":"lng_lat","layer_color":"#00f900","layer_opacity":1,"layer_radius":5,"layer_source":"🌎 Geocoding","layer_source_query":"Japan","layer_source_query_strict":"country","layer_type":"line","source_coordinates":null,"source_latitude":null,"source_longitude":null,"source_type":"query"}],"ml_alias":"Elixir.MapLibre","style":"street (non-commercial)","zoom":3},"chunks":null,"kind":"Elixir.KinoMapLibre.MapCell","livebook_object":"smart_cell"} -->
+
+```elixir
+MapLibre.new(style: :street, center: {135.0, 42.0}, zoom: 3)
+|> MapLibre.add_geocode_source("japan_country", "Japan", :country)
+|> MapLibre.add_layer(
+  id: "japan_country_line_1",
+  source: "japan_country",
+  type: :line,
+  paint: [line_color: "#00f900", line_opacity: 1]
+)
+```
