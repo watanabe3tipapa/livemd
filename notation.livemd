@@ -1,10 +1,50 @@
 # Notation
 
-## Section 1
+## Markdown
 
-#Markdown
+> Markdown
 
-## Section 2
+*Markdown*
+
+<!-- livebook:{"break_markdown":true} -->
+
+---
+
+## Diagram
+
+```mermaid
+flowchart LR
+    Otaru --- Minami-Otaru --- Zenibako --- Teine --- Kotoni --- Sapporo
+    Minami-Otaru ---Teine
+    Otaru --- Sapporo
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+```mermaid
+pie
+title Favorite cat ranking by 527 people who have owned a cat.
+"American Shorthair" : 145
+"Munchkin" : 87
+"Persian" : 64
+"Russian Blue" : 50
+"Scottish Fold" : 47
+"others" : 134
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+graph TD;
+  A-->B;
+  A-->C;
+  B-->D;
+  C-->D;
+```
+
+<!-- livebook:{"break_markdown":true} -->
 
 ```mermaid
 flowchart LR
@@ -25,34 +65,10 @@ sequenceDiagram
 
 <!-- livebook:{"break_markdown":true} -->
 
-<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+---
 
-```mermaid
-graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
+```elixir
+
 ```
 
-<!-- livebook:{"break_markdown":true} -->
-
-```mermaid
-pie
-title Favorite cat ranking by 527 people who have owned a cat.
-"American Shorthair" : 145
-"Munchkin" : 87
-"Persian" : 64
-"Russian Blue" : 50
-"Scottish Fold" : 47
-"others" : 134
-```
-
-<!-- livebook:{"break_markdown":true} -->
-
-```mermaid
-flowchart LR
-    Otaru --- Minami-Otaru --- Zenibako --- Teine --- Kotoni --- Sapporo
-    Minami-Otaru ---Teine
-    Otaru --- Sapporo
-```
+### [Markdown.dev](https://watanabe3tipapa.gitbook.io/markdown.dev/)
