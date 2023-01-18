@@ -1,0 +1,54 @@
+# Memory Check
+
+## Section
+
+```elixir
+Mix.install([
+  {:vega_lite, "~> 0.1.3"},
+  {:kino, "~> 0.5.0"}
+])
+
+alias VegaLite, as: Vl
+
+memory = [
+  total: :red,
+  processes: :yellow,
+  atom: :green,
+  binary: :pink,
+  code: :orange,
+  ets: :blue
+]
+
+layers =
+  for {layer, color} <- memory do
+    Vl.new()
+    |> Vl.mark(:line)
+    |> Vl.encode_field(:x, "iteration", type: :quantitative)
+    |> Vl.encode_field(:y, Atom.to_string(layer), type: :quantitative, title: "Memory usage (MB)")
+    |> Vl.encode(:color, value: color, datum: Atom.to_string(layer))
+  end
+
+widget =
+  Vl.new(width: 500, height: 200)
+  |> Vl.layers(layers)
+  |> Kino.VegaLite.new()
+```
+
+```elixir
+Kino.VegaLite.periodically(widget, 200, 0, fn i ->
+  point =
+    :erlang.memory()
+    |> Enum.map(fn {type, bytes} -> {type, bytes / 1_000_000} end)
+    |> Map.new()
+    |> Map.put(:iteration, i)
+
+  Kino.VegaLite.push(widget, point, window: 1000)
+  {:cont, i + 1}
+end)
+```
+
+```elixir
+for i <- 1..1_000_000 do
+  :"atom#{i}"
+end
+```
